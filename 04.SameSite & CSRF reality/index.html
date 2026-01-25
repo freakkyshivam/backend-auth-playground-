@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SameSite Practice</title>
+</head>
+<body>
+<div id="text"></div>
+<button id="btn">Set Cookie</button>
+<button id="btn2">Check Cookie</button>
+
+<script>
+  // SameSite cookie set karne ke liye
+  document.getElementById("btn").addEventListener("click", async () => {
+
+    // credentials: "include" zaroori hai
+    // warna browser cookie send/receive hi nahi karega
+    const response = await fetch("http://localhost:3000/set-cookie", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    console.log(await response.text());
+  });
+
+
+  // Cookie check karne ke liye
+  document.getElementById("btn2").addEventListener("click", async () => {
+
+    const response = await fetch("http://localhost:3000/check-cookie", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    console.log(await response.text());
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CORS Test</title>
+</head>
+<body>
+
+<h1 id="text"></h1>
+
+<!-- Button click pe JS function call hoga -->
+<button onclick="corsTest()">CORS test</button>
+
+<script>
+  const corsTest = () => {
+    console.log("Button clicked");
+
+    // Browser cross-origin request bhej raha hai
+    fetch("http://localhost:3000/cors-test", {
+      credentials: "include" // cookies allow karne ke liye
+    })
+      .then(res => res.json())   // YAHIN CORS apply hota hai
+      .then(data => console.log(data))
+      .catch(err => console.error("JS error:", err));
+  };
+</script>
+
+</body>
+</html>

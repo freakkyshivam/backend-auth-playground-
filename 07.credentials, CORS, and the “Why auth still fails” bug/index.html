@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Credentials Test</title>
+</head>
+<body>
+
+<h1>Practice 7</h1>
+
+ 
+<button onclick="login()">Login</button>
+<button onclick="profile()">Profile</button>
+
+<script>
+  // Login request
+  const login = async () => {
+
+    // credentials: "include" important hai
+    // bina iske cookie set hi nahi hogi
+    fetch("http://localhost:3000/login", {
+      credentials: "include"
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.error("JS ERROR:", err));
+  };
+
+  // Profile request
+  const profile = async () => {
+
+    fetch("http://localhost:3000/profile", {
+      credentials: "include"
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
+  };
+</script>
+
+</body>
+</html>

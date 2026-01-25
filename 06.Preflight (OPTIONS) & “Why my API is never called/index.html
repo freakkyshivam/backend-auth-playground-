@@ -1,0 +1,31 @@
+import express from 'express';
+
+const PORT = 3000;
+const app = express();
+
+app.options("/preflight-test", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:3001");
+  res.setHeader("Access-Control-Allow-Methods", "POST");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.sendStatus(204);
+});
+
+
+app.post("/preflight-test", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:3001");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
+  console.log("POST /preflight-test HIT");
+  res.json({ message: "POST SUCCESS" });
+});
+
+
+
+
+
+app.listen(PORT, ()=>{
+    console.log(`Server listen at http://localhost:${PORT}`);
+})
+
+ 
