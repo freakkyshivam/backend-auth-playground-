@@ -1,0 +1,17 @@
+{
+  "name": "09.session-fixation-and-session-rotation",
+  "version": "1.0.0",
+  "description": "Hands-on practice for session fixation and session rotation",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1"
+  }
+}
